@@ -1,0 +1,28 @@
+@keyframes OnHover {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+.person-tile {
+  background: white;
+  padding: 2rem;
+  margin: 1rem;
+  border-radius: 1rem;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: 0.3s ease-in-out transform;
+
+  &:hover {
+    //animation: 0.3s ease-in-out OnHover;
+    transform: scale(1.14);
+  }
+
+  &-selected {
+    background: #125699;
+    color: white;
+  }
+}

@@ -1,0 +1,13 @@
+
+
+
+
+<person *ngFor="let person of people"
+        [person]="person"
+        [isSelected]="personSelected === person"
+        (iWasClicked)="selectPerson($event)"></person>
+
+<!--<div *ngIf="personSelected">-->
+<!--  PERSON SELECTED: {{personSelected.name}}-->
+<!--</div>-->
+
