@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { CustomTitleCasePipe } from './custom-title-case.pipe';
 import { SearchPipe } from './search.pipe';
 import {PeopleService} from './services/people.service';
+import { MyDirectiveDirective } from './my-directive.directive';
 
 @NgModule({
   declarations: [  // View related declarations
@@ -16,7 +17,8 @@ import {PeopleService} from './services/people.service';
     PeopleListComponent,
     PersonComponent,
     CustomTitleCasePipe,
-    SearchPipe
+    SearchPipe,
+    MyDirectiveDirective
   ],
   imports: [       // Module related stuff
     BrowserModule,

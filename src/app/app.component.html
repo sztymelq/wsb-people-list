@@ -327,12 +327,11 @@
 <!--&lt;!&ndash;TWO WAY DATA BINDING&ndash;&gt;-->
 <!--  {{searchPhrase}}-->
 <!--&lt;!&ndash;  BANANA IN THE BOX&ndash;&gt;-->
-<input (keydown)="searchKeyHandler($event)"
-       [(ngModel)]="searchPhrase"
+<input [(ngModel)]="searchPhrase"
+       onlyLetters
        class="search-input"
        type="text"
        placeholder="Szukaj">
-
 
 <input [(ngModel)]="newPersonName"
        class="search-input"

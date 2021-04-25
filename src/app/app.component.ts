@@ -26,12 +26,6 @@ export class AppComponent implements OnInit { // MVC - MODEL - VIEW - CONTROLLER
     this.date = format(new Date(), 'do MMMM yyyy');
   }
 
-  searchKeyHandler(event: KeyboardEvent): void {
-    if (event.code.includes('Digit')) {
-        event.preventDefault(); // Event Propagation: Browser should stop processing this event
-    }
-  }
-
   // CREATE
   addNewPerson(): void {
     if (!this.newPersonName) {
