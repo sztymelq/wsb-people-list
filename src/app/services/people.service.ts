@@ -28,6 +28,7 @@ export class PeopleService {
               age: age
             }
         }
+        return age;
     })
   }
 }
