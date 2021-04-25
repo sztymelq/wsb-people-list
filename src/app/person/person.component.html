@@ -1,9 +1,7 @@
 
-
-
-
 <div (click)="personClick(person)"
      [ngClass]="{'person-tile': true, 'person-tile-selected': isSelected }">
+  <div (click)="removeButtonClicked($event)" class="remove-button">X</div>
   <div>{{person.name}}</div>
   <div>age: {{person.age}}</div>
 </div>

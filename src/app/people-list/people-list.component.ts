@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {Person} from '../model/person.model';
 
 @Component({
@@ -8,6 +8,7 @@ import {Person} from '../model/person.model';
 })
 export class PeopleListComponent implements OnInit, OnDestroy {
   @Input() public people: Person[];
+  @Output() public personRemoved: EventEmitter<Person> = new EventEmitter<Person>();
   public personSelected: Person;
 
   public selectPerson(person: Person) {
@@ -21,6 +22,10 @@ export class PeopleListComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy(): void {
     console.log('component is destroyed!')
+  }
+
+  public handleRemovePerson(person: Person): void {
+    this.personRemoved.emit(person);
   }
 }
 

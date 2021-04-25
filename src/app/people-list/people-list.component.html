@@ -5,6 +5,7 @@
 <person *ngFor="let person of people"
         [person]="person"
         [isSelected]="personSelected === person"
+        (removeClick)="handleRemovePerson(person)"
         (iWasClicked)="selectPerson($event)"></person>
 
 <!--<div *ngIf="personSelected">-->

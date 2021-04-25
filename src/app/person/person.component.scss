@@ -8,6 +8,7 @@
 }
 
 .person-tile {
+  position: relative;
   background: white;
   padding: 2rem;
   margin: 1rem;
@@ -25,4 +26,10 @@
     background: #125699;
     color: white;
   }
+}
+
+.remove-button {
+  position: absolute;
+  top: 4px;
+  right: 7px;
 }

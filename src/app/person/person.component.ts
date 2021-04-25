@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Person} from '../model/person.model';
 
-
 // DUMB COMPONENT
 @Component({
   selector: 'person',
@@ -12,9 +11,15 @@ export class PersonComponent {
   @Input() isSelected: boolean;
   @Input() person: Person; // PROPERTY BINDING
   @Output() iWasClicked: EventEmitter<Person> = new EventEmitter(); // EVENT BINDING
+  @Output() removeClick: EventEmitter<void> = new EventEmitter();
 
   personClick(person: Person) {
     this.iWasClicked.emit(person);
+  }
+
+  removeButtonClicked(e: Event) {
+    this.removeClick.emit();
+    event.stopPropagation(); // STOPUJEMY PROPAGOWANIE EVENTOW w GORE DOMA (HTMLa)
   }
 }
 
