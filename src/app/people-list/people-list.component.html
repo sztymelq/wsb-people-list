@@ -1,7 +1,7 @@
-<!--<label for="selected-checkbox">ONLY SELECTED PEOPLE</label>-->
-<!--<input (change)="showSelectedOnly()"-->
-<!--       id="selected-checkbox"-->
-<!--       type="checkbox">-->
+<label for="selected-checkbox">ONLY SELECTED PEOPLE</label>
+<input (change)="showSelectedOnly()"
+       id="selected-checkbox"
+       type="checkbox">
 
 <ng-container *ngIf="people.length; else noResults">
   <person *ngFor="let person of people"

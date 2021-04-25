@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {Person} from '../model/person.model';
+import {PeopleService} from '../services/people.service';
 
 @Component({
   selector: 'people-list',
@@ -10,6 +11,9 @@ export class PeopleListComponent implements OnInit, OnDestroy {
   @Input() public people: Person[];
   @Output() public personRemoved: EventEmitter<Person> = new EventEmitter<Person>();
   public personSelected: Person;
+  public selectedOnlyMode: boolean = false;
+
+  constructor(private peopleService: PeopleService) {}
 
   public selectPerson(person: Person) {
     this.personSelected = person;
@@ -29,6 +33,14 @@ export class PeopleListComponent implements OnInit, OnDestroy {
   }
 
   public showSelectedOnly(): void {
+    this.selectedOnlyMode = !this.selectedOnlyMode;
+    if (!this.selectedOnlyMode) {
+      this.people = this.peopleService.getPeople();
+    } else {
+      this.people = this.people.filter((p: Person) => {
+          return p === this.personSelected;
+      })
+    }
   }
 }
 
