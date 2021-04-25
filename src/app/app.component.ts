@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { Person } from './model/person.model';
 import { format } from 'date-fns';
+import {PeopleService} from './services/people.service';
 
 @Component({
   selector: 'app-root',
@@ -16,16 +17,12 @@ export class AppComponent implements OnInit { // MVC - MODEL - VIEW - CONTROLLER
   listWidth = 100; // Change Detection
   listBackground = 'blue';
   listHidden = false
+  peopleList: Person[] = [];
 
-
-  dataFromServer: Person[] = [
-    { name: 'Kasia', age: 30, PESEL: 543535 },
-    { name: 'Tomek', age: 25, PESEL: 1231 },
-    { name: 'Grzegorz', age: 20, PESEL: 765765 },
-    { name: 'Jakub', age: 40, PESEL: 1231332131 }
-  ];
+  constructor(private peopleService: PeopleService) {}
 
   ngOnInit(): void {
+    this.peopleList = this.peopleService.getPeople();
     this.date = format(new Date(), 'do MMMM yyyy');
   }
 
@@ -41,20 +38,18 @@ export class AppComponent implements OnInit { // MVC - MODEL - VIEW - CONTROLLER
         return;
     }
 
-    this.dataFromServer = [
+    this.peopleList = [
       { name: this.newPersonName, age: 31, PESEL: 43243222},
-      ...this.dataFromServer // Operator SPREAD - czyli kopiowanie propertisów
+      ...this.peopleList // Operator SPREAD - czyli kopiowanie propertisów
     ];
   }
 
   // DELETE
   public removePerson(person: Person): void {
-    this.dataFromServer = this.dataFromServer.filter((p: Person) => {
+    this.peopleList = this.peopleList.filter((p: Person) => {
       return p !== person;
     });
   }
-
-
 
   // buttonClick(): void {
   //   // this.listWidth = this.listWidth + 100;

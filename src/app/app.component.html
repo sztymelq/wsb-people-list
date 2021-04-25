@@ -359,7 +359,7 @@
 <!--<button (click)="listHidden = !listHidden">HIDE LIST</button>-->
 
 <!--BINDING-->
-<people-list [people]="dataFromServer | search: searchPhrase" (personRemoved)="removePerson($event)"></people-list>
+<people-list [people]="peopleList | search: searchPhrase" (personRemoved)="removePerson($event)"></people-list>
 
 
 

@@ -8,6 +8,7 @@ import { PersonComponent } from './person/person.component';
 import { FormsModule } from '@angular/forms';
 import { CustomTitleCasePipe } from './custom-title-case.pipe';
 import { SearchPipe } from './search.pipe';
+import {PeopleService} from './services/people.service';
 
 @NgModule({
   declarations: [  // View related declarations
@@ -22,7 +23,9 @@ import { SearchPipe } from './search.pipe';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    PeopleService // Singleton
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
