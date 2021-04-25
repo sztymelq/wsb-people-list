@@ -11,11 +11,12 @@ export class AppComponent implements OnInit { // MVC - MODEL - VIEW - CONTROLLER
   date: string = '';
   searchPhrase: string = '';
   newPersonName: string;
-  title: string = 'WSB HR SYSTEM';
+  title: string = 'wsb hr system';
   isTitleVisible: boolean = true;
   listWidth = 100; // Change Detection
   listBackground = 'blue';
   listHidden = false
+
 
   dataFromServer: Person[] = [
     { name: 'Kasia', age: 30, PESEL: 543535 },

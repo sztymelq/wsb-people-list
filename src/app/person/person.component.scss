@@ -16,6 +16,7 @@
   border: 1px solid black;
   cursor: pointer;
   transition: 0.3s ease-in-out transform;
+  max-width: 8rem;
 
   &:hover {
     //animation: 0.3s ease-in-out OnHover;

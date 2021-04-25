@@ -27,6 +27,9 @@ export class PeopleListComponent implements OnInit, OnDestroy {
   public handleRemovePerson(person: Person): void {
     this.personRemoved.emit(person);
   }
+
+  public showSelectedOnly(): void {
+  }
 }
 
 // Component SMART

@@ -1,12 +1,23 @@
+<!--<label for="selected-checkbox">ONLY SELECTED PEOPLE</label>-->
+<!--<input (change)="showSelectedOnly()"-->
+<!--       id="selected-checkbox"-->
+<!--       type="checkbox">-->
+
+<ng-container *ngIf="people.length; else noResults">
+  <person *ngFor="let person of people"
+          [person]="person"
+          [isSelected]="personSelected === person"
+          (removeClick)="handleRemovePerson(person)"
+          (iWasClicked)="selectPerson($event)"></person>
+</ng-container>
+
+<ng-template #noResults>
+  <div>
+    No result found.
+  </div>
+</ng-template>
 
 
-
-
-<person *ngFor="let person of people"
-        [person]="person"
-        [isSelected]="personSelected === person"
-        (removeClick)="handleRemovePerson(person)"
-        (iWasClicked)="selectPerson($event)"></person>
 
 <!--<div *ngIf="personSelected">-->
 <!--  PERSON SELECTED: {{personSelected.name}}-->
